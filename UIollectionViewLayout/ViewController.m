@@ -33,7 +33,7 @@ static NSString * const PhotoCellId = @"photo";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.myCollectionView];
-    [self  addChangedBtn];
+//    [self  addChangedBtn];
 }
 #pragma mark ---- 添加 改变布局的按钮
 -(void)addChangedBtn
@@ -80,7 +80,7 @@ static NSString * const PhotoCellId = @"photo";
         /**
          注意：初始化collectionView 通过frame和layout 一定要传进去一个layout
          */
-        _myCollectionView=[[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
+        _myCollectionView=[[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.squareLayout];
         _myCollectionView.delegate = self;
         _myCollectionView.dataSource = self;
         _myCollectionView.showsVerticalScrollIndicator=NO;
@@ -156,6 +156,5 @@ static NSString * const PhotoCellId = @"photo";
     [self.dataArr removeObjectAtIndex:indexPath.item];
     //TODO:  这个方法 特别注意 删除item的方法
     [self.myCollectionView deleteItemsAtIndexPaths:@[indexPath]];
-    NSLog(@"点击了 %zd" ,indexPath.item);
 }
 @end
